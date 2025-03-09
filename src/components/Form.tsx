@@ -1,16 +1,8 @@
 import { useState } from "react";
 import { Mail } from "lucide-react";
 
-interface FormData {
-  name: string;
-  company: string;
-  email: string;
-  interest: string;
-  message: string;
-}
-
 export default function ConsultationForm() {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState({
     name: "",
     company: "",
     email: "",
@@ -18,29 +10,35 @@ export default function ConsultationForm() {
     message: "",
   });
 
-  const [submitted, setSubmitted] = useState<boolean>(false);
+  const [errors, setErrors] = useState({});
 
-  // Handle input changes
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const validate = () => {
+    let tempErrors = {};
+    if (!formData.name) tempErrors.name = "Name is required!";
+    if (!formData.company) tempErrors.company = "Company name is required!";
+    if (!formData.email) tempErrors.email = "Email is required!";
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) tempErrors.email = "Invalid email format!";
+    if (!formData.interest) tempErrors.interest = "Please select an interest!";
+    if (!formData.message) tempErrors.message = "Message cannot be empty!";
+    setErrors(tempErrors);
+    return Object.keys(tempErrors).length === 0;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validate()) {
+      alert("Form submitted successfully! 🚀");
+      setFormData({ name: "", company: "", email: "", interest: "", message: "" });
+    }
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md w-full">
-      <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
-        Request a Consultation
-      </h2>
+      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md w-full">
+        <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+          Request a Consultation
+        </h2>
 
-      {!submitted ? (
-        <form 
-          name="consultation-form" 
-          method="POST" 
-          data-netlify="true" 
-          className="space-y-4"
-        >
-          {/* Netlify Hidden Input */}
-          <input type="hidden" name="form-name" value="consultation-form" />
-
+        <form className="space-y-4" onSubmit={handleSubmit} netlify name="contact">
           {/* Name */}
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
@@ -48,13 +46,15 @@ export default function ConsultationForm() {
             </label>
             <input
               type="text"
-              name="name"
-              required
+              id="name"
               value={formData.name}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-[#007BFF] focus:border-[#007BFF] bg-white dark:bg-gray-700"
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              className={`w-full px-4 py-2 border ${
+                errors.name ? "border-red-500" : "border-gray-300 dark:border-gray-600"
+              } rounded-md focus:ring-[#007BFF] focus:border-[#007BFF] bg-white dark:bg-gray-700`}
               placeholder="Your name"
             />
+            {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
           </div>
 
           {/* Company */}
@@ -64,13 +64,15 @@ export default function ConsultationForm() {
             </label>
             <input
               type="text"
-              name="company"
-              required
+              id="company"
               value={formData.company}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-[#007BFF] focus:border-[#007BFF] bg-white dark:bg-gray-700"
+              onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+              className={`w-full px-4 py-2 border ${
+                errors.company ? "border-red-500" : "border-gray-300 dark:border-gray-600"
+              } rounded-md focus:ring-[#007BFF] focus:border-[#007BFF] bg-white dark:bg-gray-700`}
               placeholder="Your company"
             />
+            {errors.company && <p className="text-red-500 text-xs mt-1">{errors.company}</p>}
           </div>
 
           {/* Email */}
@@ -80,13 +82,15 @@ export default function ConsultationForm() {
             </label>
             <input
               type="email"
-              name="email"
-              required
+              id="email"
               value={formData.email}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-[#007BFF] focus:border-[#007BFF] bg-white dark:bg-gray-700"
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              className={`w-full px-4 py-2 border ${
+                errors.email ? "border-red-500" : "border-gray-300 dark:border-gray-600"
+              } rounded-md focus:ring-[#007BFF] focus:border-[#007BFF] bg-white dark:bg-gray-700`}
               placeholder="your.email@company.com"
             />
+            {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
           </div>
 
           {/* Dataset Interest */}
@@ -95,11 +99,12 @@ export default function ConsultationForm() {
               Dataset Interest
             </label>
             <select
-              name="interest"
-              required
+              id="interest"
               value={formData.interest}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-[#007BFF] focus:border-[#007BFF] bg-white dark:bg-gray-700"
+              onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
+              className={`w-full px-4 py-2 border ${
+                errors.interest ? "border-red-500" : "border-gray-300 dark:border-gray-600"
+              } rounded-md focus:ring-[#007BFF] focus:border-[#007BFF] bg-white dark:bg-gray-700`}
             >
               <option value="">Select your interest</option>
               <option value="stem">STEM Data</option>
@@ -107,6 +112,7 @@ export default function ConsultationForm() {
               <option value="reasoning">Reasoning Data</option>
               <option value="custom">Custom Solution</option>
             </select>
+            {errors.interest && <p className="text-red-500 text-xs mt-1">{errors.interest}</p>}
           </div>
 
           {/* Message */}
@@ -115,13 +121,16 @@ export default function ConsultationForm() {
               Message
             </label>
             <textarea
-              name="message"
-              required
+              id="message"
+              rows={4}
               value={formData.message}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-[#007BFF] focus:border-[#007BFF] bg-white dark:bg-gray-700"
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              className={`w-full px-4 py-2 border ${
+                errors.message ? "border-red-500" : "border-gray-300 dark:border-gray-600"
+              } rounded-md focus:ring-[#007BFF] focus:border-[#007BFF] bg-white dark:bg-gray-700`}
               placeholder="Tell us about your specific needs..."
             ></textarea>
+            {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
           </div>
 
           {/* Submit Button */}
@@ -133,9 +142,7 @@ export default function ConsultationForm() {
             <Mail className="ml-2 h-4 w-4" />
           </button>
         </form>
-      ) : (
-        <p className="text-green-500 font-semibold">Thank you! Your request has been submitted. 🚀</p>
-      )}
-    </div>
+      </div>
   );
 }
+
