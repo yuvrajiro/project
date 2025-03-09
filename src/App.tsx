@@ -4,7 +4,7 @@ import Navbar from './components/NavBar';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AboutPage from './pages/AboutPage';
 import HomePage from './pages/HomePage';
-import GlobalStyles from './pages/Flow';
+
 
 function App() {
   const [darkMode, setDarkMode] = React.useState(false);
