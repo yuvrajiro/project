@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../components/Footer";
+import Lab10xLogo from "../components/Logo";
 
 const AboutPage: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ const AboutPage: React.FC = () => {
 
       {/* Startup Description */}
       <p className="text-lg text-gray-600 max-w-3xl mt-6 leading-relaxed">
-        Lab<sub>10</sub>x was founded by a team of <strong>PhD students from Indian Institute of Technology</strong>, united by a common vision:
+        <Lab10xLogo  /> was founded by a team of <strong>PhD students from Indian Institute of Technology</strong>, united by a common vision:
         to accelerate the development of <strong>Artificial General Intelligence (AGI)</strong> by providing AI companies with 
         <strong> expert-curated, domain-specific training data</strong>. While large language models have shown remarkable advancements, 
         they are still limited by the <strong> quality and depth of their training data</strong>. Public datasets are often 
@@ -21,7 +21,7 @@ const AboutPage: React.FC = () => {
       </p>
 
       <p className="text-lg text-gray-600 max-w-3xl mt-4 leading-relaxed">
-        By collaborating with top researchers, scientists, and engineers, Lab<sub>10</sub>x is shaping a future where AI 
+        By collaborating with top researchers, scientists, and engineers, <Lab10xLogo /> is shaping a future where AI 
         is <strong>not just fast, but accurate, reliable, and deeply knowledgeable</strong>. We believe that <strong>AGI will not 
         be achieved merely by scaling models, but by refining the data they learn from</strong>. Through 
         <strong> expert-guided curation, rigorous validation, and continual updates</strong>, we empower AI companies with 
@@ -34,18 +34,15 @@ const AboutPage: React.FC = () => {
         <p className="text-xl italic text-gray-800 dark:text-gray-200">
           Artificial General Intelligence will redefine every aspect of human civilization, from science and medicine 
           to creativity and decision-making. But without expert knowledge as its foundation, AGI will be 
-          a powerful mind without wisdom. At Lab<sub>10</sub>x, we are ensuring that AI learns from the best minds 
+          a powerful mind without wisdom. At <Lab10xLogo />, we are ensuring that AI learns from the best minds 
           of today, so it can become the greatest mind of tomorrow.
         </p>
-        <p className="text-lg font-semibold mt-4">— Rahul Goswami, CEO of Lab<sub>10</sub>x</p>
+        <p className="text-lg font-semibold mt-4">— Rahul Goswami, CEO of <Lab10xLogo /></p>
         </div>
         </div>
       </section>
       
 
-      
-    
-    <Footer />
     </div>
   );
 };

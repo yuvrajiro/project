@@ -18,7 +18,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
                 {/* <Brain className="h-8 w-8 text-[#007BFF]" /> */}
                 {/* <img src="/Designer.png" alt="Lab10x Logo" className="h-16 w-auto" /> */}
                 <Link to="/" className="text-xl font-bold hover:text-[#007BFF] transition-colors">
-                <span className="text-xl font-bold"><MathJax>$${" \\Huge Lab_{10}x"}$$</MathJax>
+                <span className="text-xl font-bold"><MathJax>$${" \\huge \\mathcal{Lab}_{\\mathcal{10}}\\mathcal{x}"}$$</MathJax>
                 </span>
                 </Link>
               </div>

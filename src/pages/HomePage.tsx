@@ -1,8 +1,8 @@
 import React from "react";
 import Hero from "../components/Hero";
-import Footer from "../components/Footer";
 import { Brain, Code, FlaskRound as Flask, ChevronRight, CheckCircle, ArrowRight, BarChart3, Users, MessageSquare, Mail } from 'lucide-react';
 import ConsultationForm from "../components/Form";
+import Lab10xLogo from "../components/Logo";
 
 const HomePage: React.FC = () => {
   return (
@@ -14,8 +14,8 @@ const HomePage: React.FC = () => {
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Why This Matters</h2>
               <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                Training LLMs with generic data leads to hallucinations and inaccuracies in critical domains like STEM and reasoning.
-                Lab<sub>10x</sub> provides meticulously curated, domain-specific datasets designed by experts to enhance precision, 
+                Training LLMs with generic data leads to hallucinations and inaccuracies in critical domains like STEM and reasoning. 
+                 <Lab10xLogo /> provides meticulously curated, domain-specific datasets designed by experts to enhance precision, 
                 factual accuracy, and reasoning depth in AI models.
               </p>
             </div>
@@ -75,7 +75,7 @@ const HomePage: React.FC = () => {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-4">After: Lab<sub>10x</sub> Enhanced LLM Response</h3>
+                  <h3 className="text-xl font-semibold mb-4">After: <Lab10xLogo /> Enhanced LLM Response</h3>
                   <div className="bg-[#007BFF]/5 dark:bg-[#007BFF]/10 p-4 rounded-md border-l-4 border-[#007BFF]">
                     <p className="text-gray-600 dark:text-gray-300 font-mono text-sm">
                       "The time-dependent Schrödinger equation (iℏ∂Ψ/∂t = ĤΨ) describes how quantum states evolve, where Ĥ is the Hamiltonian operator representing the system's total energy. This fundamental equation enables precise prediction of quantum phenomena like tunneling and superposition, with applications in quantum computing and materials science."
@@ -197,7 +197,7 @@ const HomePage: React.FC = () => {
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Us?</h2>
               <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                See how Lab<sub>10x</sub> compares to other data sources for training large language models.
+                See how <Lab10xLogo /> compares to other data sources for training large language models.
               </p>
             </div>
 
@@ -208,7 +208,7 @@ const HomePage: React.FC = () => {
                     <th className="px-6 py-4 text-left text-sm font-semibold">Feature</th>
                     <th className="px-6 py-4 text-center text-sm font-semibold">Open-Source Data</th>
                     <th className="px-6 py-4 text-center text-sm font-semibold">Generic AI Data</th>
-                    <th className="px-6 py-4 text-center text-sm font-semibold bg-[#007BFF]/10 dark:bg-[#007BFF]/20">Lab<sub>10x</sub></th>
+                    <th className="px-6 py-4 text-center text-sm font-semibold bg-[#007BFF]/10 dark:bg-[#007BFF]/20"><Lab10xLogo /></th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -247,7 +247,7 @@ const HomePage: React.FC = () => {
             </div>
 
             <div className="mt-12 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-4">Performance Improvement with Lab<sub>10x</sub> Datasets</h3>
+              <h3 className="text-xl font-semibold mb-4">Performance Improvement with <Lab10xLogo /> Datasets</h3>
               <div className="h-64 relative">
                 <div className="absolute bottom-0 left-0 w-full h-full flex items-end">
                   <div className="w-1/3 h-[30%] bg-gray-300 dark:bg-gray-600 mx-2 rounded-t-md relative group">
@@ -259,7 +259,7 @@ const HomePage: React.FC = () => {
                     <div className="absolute -bottom-8 left-0 right-0 text-center text-sm">60%</div>
                   </div>
                   <div className="w-1/3 h-[95%] bg-[#007BFF] mx-2 rounded-t-md relative group">
-                    <div className="absolute -top-8 left-0 right-0 text-center text-sm font-medium">Lab<sub>10</sub>x</div>
+                    <div className="absolute -top-8 left-0 right-0 text-center text-sm font-medium"><Lab10xLogo /></div>
                     <div className="absolute -bottom-8 left-0 right-0 text-center text-sm">95%</div>
                   </div>
                 </div>
@@ -326,7 +326,7 @@ const HomePage: React.FC = () => {
                 </div>
                 <div>
                   <p className="italic text-gray-600 dark:text-gray-300 mb-2">
-                    Lab<sub>10</sub>x is addressing a critical gap in AI training. Their expert-curated datasets have significantly improved our models' performance in specialized domains.
+                  <Lab10xLogo /> is addressing a critical gap in AI training. Their expert-curated datasets have significantly improved our models' performance in specialized domains.
                   </p>
                   <p className="font-medium">Vinay Kumar Giri</p>
                   <p className="text-sm text-gray-500 dark:text-gray-400">Founder, RedReitor Financial Services</p>
@@ -486,11 +486,7 @@ const HomePage: React.FC = () => {
               </p>
             </div>
           </div>
-        </section>
-
-        <Footer />
-
-        
+        </section> 
     </div>
   );
 };

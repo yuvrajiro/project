@@ -1,4 +1,5 @@
 import { Brain } from "lucide-react";
+import Lab10xLogo from "./Logo";
 
 
 
@@ -9,8 +10,8 @@ const Footer: React.FC = () => {
     <div className="grid md:grid-cols-4 gap-8">
         <div>
         <div className="flex items-center space-x-2 mb-4">
-            <Brain className="h-6 w-6 text-[#007BFF]" />
-            <span className="text-xl font-bold">Lab<sub>10</sub>x</span>
+            {/* <Brain className="h-6 w-6 text-[#007BFF]" /> */}
+            <span className="text-xl font-bold"><Lab10xLogo /></span>
         </div>
         <p className="text-gray-300 text-sm">
             Empowering the next generation of AI with expert-curated, domain-specific training data.
@@ -46,7 +47,7 @@ const Footer: React.FC = () => {
     </div>
     <div className="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
         <p className="text-sm text-gray-400">
-        © {new Date().getFullYear()} Lab<sub>10x</sub>. All rights reserved.
+        © {new Date().getFullYear()} Lab<sub>10</sub>x. All rights reserved.
         </p>
         <div className="flex space-x-4 mt-4 md:mt-0">
         <a href="#" className="text-gray-400 hover:text-[#007BFF] transition-colors">
