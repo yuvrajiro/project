@@ -11,7 +11,6 @@ export default function ConsultationForm() {
   });
 
   const [errors, setErrors] = useState({});
-  const [submissionSuccess, setSubmissionSuccess] = useState(false); // Add state for success message
 
   const validate = () => {
     let tempErrors = {};
@@ -26,13 +25,16 @@ export default function ConsultationForm() {
   };
 
   const handleSubmit = (e) => {
-    // Remove e.preventDefault() to allow Netlify to handle submission
+    e.preventDefault();
     if (validate()) {
-      // Client-side validation passed, form will be submitted to Netlify
-      setSubmissionSuccess(true); // Show success message
-      setErrors({}); // Clear any previous errors
-      setFormData({ name: "", company: "", email: "", interest: "", message: "" }); // Reset form
-      // Netlify will handle the actual submission and redirect (or you handle success page)
+      const form = e.target;
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(new FormData(form)).toString(),
+      })
+        .then(() => alert("Form submitted successfully! 🚀"))
+        .catch((error) => alert("Error submitting form. Please try again."));
     }
   };
 
@@ -42,22 +44,22 @@ export default function ConsultationForm() {
         Request a Consultation
       </h2>
 
-      {submissionSuccess && ( // Conditional rendering for success message
-        <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
-          <strong className="font-bold">Success!</strong>
-          <span className="block sm:inline"> Your form has been submitted. We will be in touch soon.</span>
-        </div>
-      )}
-
       <form
         className="space-y-4"
         onSubmit={handleSubmit}
-        name="contact" // Form name for Netlify
+        name="contact"
         method="POST"
-        netlify // Enable Netlify Forms
+        data-netlify="true"
+        netlify
       >
-        {/* Hidden input to make sure form name is processed correctly - best practice */}
+        {/* Hidden Netlify Input */}
         <input type="hidden" name="form-name" value="contact" />
+        {/* Honeypot Field */}
+        <div className="hidden">
+          <label>
+            Don’t fill this out if you’re human: <input name="bot-field" />
+          </label>
+        </div>
 
         {/* Name */}
         <div>
@@ -67,7 +69,7 @@ export default function ConsultationForm() {
           <input
             type="text"
             id="name"
-            name="name" // Add name attribute
+            name="name"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             className={`w-full px-4 py-2 border ${
@@ -86,7 +88,7 @@ export default function ConsultationForm() {
           <input
             type="text"
             id="company"
-            name="company" // Add name attribute
+            name="company"
             value={formData.company}
             onChange={(e) => setFormData({ ...formData, company: e.target.value })}
             className={`w-full px-4 py-2 border ${
@@ -105,7 +107,7 @@ export default function ConsultationForm() {
           <input
             type="email"
             id="email"
-            name="email" // Add name attribute
+            name="email"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             className={`w-full px-4 py-2 border ${
@@ -123,7 +125,7 @@ export default function ConsultationForm() {
           </label>
           <select
             id="interest"
-            name="interest" // Add name attribute
+            name="interest"
             value={formData.interest}
             onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
             className={`w-full px-4 py-2 border ${
@@ -146,8 +148,8 @@ export default function ConsultationForm() {
           </label>
           <textarea
             id="message"
+            name="message"
             rows={4}
-            name="message" // Add name attribute
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             className={`w-full px-4 py-2 border ${
