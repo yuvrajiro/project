@@ -51,6 +51,7 @@ export default function ConsultationForm() {
         method="POST"
         data-netlify="true"
         netlify
+        netlify-honeypot="bot-field"
       >
         {/* Hidden Netlify Input */}
         <input type="hidden" name="form-name" value="contact" />
