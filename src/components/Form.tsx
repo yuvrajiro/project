@@ -2,13 +2,16 @@ import { useState } from "react";
 import { Mail } from "lucide-react";
 
 export default function ConsultationForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    company: "",
-    email: "",
-    interest: "",
-    message: "",
-  });
+
+
+    
+    const [formData, setFormData] = useState({
+        name: "",
+        company: "",
+        email: "",
+        interest: "",
+        message: "",
+    });
 
   const [submitted, setSubmitted] = useState(false);
 
@@ -151,3 +154,7 @@ export default function ConsultationForm() {
     </div>
   );
 }
+
+
+
+
