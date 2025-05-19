@@ -1,4 +1,3 @@
-import { Brain } from "lucide-react";
 import Lab10xLogo from "./Logo";
 
 
