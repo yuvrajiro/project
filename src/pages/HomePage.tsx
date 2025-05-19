@@ -1,6 +1,6 @@
 import React from "react";
 import Hero from "../components/Hero";
-import { Brain, Code, FlaskRound as Flask, ChevronRight, CheckCircle, ArrowRight, BarChart3, Users, MessageSquare, Mail } from 'lucide-react';
+import { Brain, Code, FlaskRound as Flask, ChevronRight, CheckCircle, ArrowRight, BarChart3, Users, MessageSquare} from 'lucide-react';
 import ConsultationForm from "../components/Form";
 import Lab10xLogo from "../components/Logo";
 
@@ -402,8 +402,8 @@ const HomePage: React.FC = () => {
                     <h3 className="text-xl font-semibold text-[#007BFF]">Need immediate assistance?</h3>
                   </div>
                   <p className="mb-4">Our team is ready to answer your questions and discuss your specific needs.</p>
-                  <a href="mailto:rahul@labtenx.com" className="text-[#007BFF] font-medium hover:underline">
-                    rahul@labtenx.com
+                  <a href="mailto:contact@labtenx.com" className="text-[#007BFF] font-medium hover:underline">
+                    contact@labtenx.com
                   </a>
                 </div>
               </div>

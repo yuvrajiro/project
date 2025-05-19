@@ -27,10 +27,17 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
                 <button onClick={toggleDarkMode} className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
                   {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
                 </button>
+                <Link to="/people" className="text-lg font-medium text-gray-700 dark:text-white hover:text-[#007BFF]">
+          Peoples
+            </Link>
+                <Link to="/blog" className="text-lg font-medium text-gray-700 dark:text-white hover:text-[#007BFF]">
+          Blogs
+            </Link>
                 <Link to="/about" className="text-lg font-medium text-gray-700 dark:text-white hover:text-[#007BFF]">
           About
             </Link>
-                <a href="#contact" className="hidden md:block px-5 py-2 bg-[#007BFF] hover:bg-[#0056b3] text-white rounded-md transition-colors">
+            
+                <a href="/#contact" className="hidden md:block px-5 py-2 bg-[#007BFF] hover:bg-[#0056b3] text-white rounded-md transition-colors">
                   Get in Touch
                 </a>
               </div>
